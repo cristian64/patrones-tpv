@@ -3,10 +3,7 @@
 <?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.uml.msl.model" version="7.0.0"><feature description="" name="com.ibm.xtools.ruml.feature" url="" version="7.0.0"/></signature>?>
 <?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Plataforma de modelado de Rational (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
 <uml:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.2/Umlnotation" xmi:id="_uwrJkTAfEd-xu5buYM0Kfg" name="Paquete en blanco">
-  <eAnnotations xmi:id="_uwrJkjAfEd-xu5buYM0Kfg" source="uml2.diagrams" references="_uwrJkzAfEd-xu5buYM0Kfg">
-    <contents xmi:type="notation:Diagram" xmi:id="_uwrJkzAfEd-xu5buYM0Kfg" type="Usecase" name="Main">
-      <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_uwrJlDAfEd-xu5buYM0Kfg"/>
-    </contents>
+  <eAnnotations xmi:id="_uwrJkjAfEd-xu5buYM0Kfg" source="uml2.diagrams">
     <contents xmi:type="notation:Diagram" xmi:id="_1zdP0DAfEd-xu5buYM0Kfg" type="Class" name="Diagrama de clases">
       <children xmi:id="_9WEssDAfEd-xu5buYM0Kfg" element="_9V7iwDAfEd-xu5buYM0Kfg">
         <children xmi:id="_9WOdsDAfEd-xu5buYM0Kfg" type="ImageCompartment">
