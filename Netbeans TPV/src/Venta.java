@@ -5,12 +5,18 @@ public class Venta
 {
 	private ArrayList<LineaVenta> lineasVenta;
 	private TipoCliente tipoCliente;
+        private ArrayList<AlgoritmoImpuestos> algoritmosImpuestos;
 	
 	public Venta()
 	{
 		lineasVenta = new ArrayList<LineaVenta>();
 		tipoCliente = null;		
 	}
+
+        public Venta(Venta venta)
+        {
+            //TODO Constructor de copia
+        }
 	
 	public ArrayList<LineaVenta> getLineasVenta()
 	{

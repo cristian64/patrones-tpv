@@ -10,7 +10,17 @@
 public class DescuentoCliente implements Descuento {
 
     public double calcularDescuento(Venta venta) {
-        return 0.0;
+        double acumulado = 0.0;
+
+        int porcentaje = venta.getTipoCliente().getDescuento();
+
+        for(LineaVenta linea : venta.getLineasVenta())
+        {
+            double precioLinea = linea.getCantidad()*linea.getProducto().getPrecio();
+            acumulado += (precioLinea*porcentaje)/100.0;
+        }
+
+        return acumulado;
     }
 
 }
