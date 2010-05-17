@@ -2,6 +2,7 @@ public class LineaVenta
 {
 	private Producto producto;
 	private int cantidad;
+        private boolean descuento;
 	
 	public LineaVenta()
 	{
@@ -28,5 +29,10 @@ public class LineaVenta
 	{
 		this.cantidad = cantidad;
 	}
+
+        public void setDescuento(boolean descuento)
+        {
+            this.descuento = descuento;
+        }
 }
 

@@ -18,15 +18,17 @@ public class DescuentoProducto implements Descuento {
 
         for(LineaVenta linea : venta.getLineasVenta())
         {
-            if(linea.producto.getId() == producto.getId())
+            if(linea.getProducto().getId() == producto.getId())
             {
-                  articulos += linea.cantidad;
+                  articulos += linea.getCantidad();
+
+                  //Comprueba que haya suficientes productos para el descuento
                   while(articulos >= descuento)
                   {
-                      linea.cantidad--;
+                      linea.setCantidad(linea.getCantidad()-1);
                       articulos -= descuento;
-                      acumulado += linea.producto.getPrecio();
-                      linea.descuento = true;
+                      acumulado += linea.getProducto().getPrecio();
+                      linea.setDescuento(true);
                   }
             }
         }

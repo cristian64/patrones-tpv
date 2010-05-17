@@ -19,6 +19,7 @@ public class DescuentoCompuesto implements Descuento {
 
         for(Descuento d : descuentos)
         {
+            //Calcula el descuento de cada descuento base
             acumulado += d.calcularDescuento(venta);
         }
 

@@ -24,6 +24,8 @@ public class CatalogoProducto
 			if (i.getId() == id)
 				return i;
 		}
+
+                return null;
 	}
 	
 	public void anadirProducto(Producto producto)
