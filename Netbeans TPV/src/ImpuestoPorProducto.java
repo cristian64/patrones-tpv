@@ -10,7 +10,16 @@
 public class ImpuestoPorProducto implements AlgoritmoImpuestos {
 
     public double calcularImpuestos(Venta venta) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        double impuesto = 0;
+
+		for(LineaVenta linea : venta.getLineasVenta())
+		{
+			Producto p = linea.getProducto();
+			double total = p.getPrecio() * linea.getCantidad();
+			impuesto += (total - (total / ((100+p.getDescuento())/100)));
+		}
+
+		return impuesto;
     }
 
 }
