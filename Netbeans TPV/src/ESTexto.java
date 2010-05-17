@@ -153,7 +153,7 @@ public class ESTexto implements EntradaSalida {
 				salida += " *";
 			salida+= "\n";
 		}
-		salida += "Total: " + venta.getPrecioTotal() + "\n";
+		salida += "Total: " + venta.getPrecioTotal() + "E\n";
 		salida += "Dcto: " + (venta.getPrecioTotal() - venta.getPrecioFinal()) + "E\n";
 		salida += "Precio final: " + venta.getPrecioFinal() + "E\n";
 		salida += "Impuestos: " + (venta.getPrecioFinal() - venta.getPrecioNeto()) + "E\n";
