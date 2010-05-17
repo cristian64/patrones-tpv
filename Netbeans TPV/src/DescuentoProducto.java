@@ -13,7 +13,25 @@ public class DescuentoProducto implements Descuento {
     public int descuento;
     
     public double calcularDescuento(Venta venta) {
-        return 0.0;
+        int articulos = 0;
+        double acumulado = 0;
+
+        for(LineaVenta linea : venta.getLineasVenta())
+        {
+            if(linea.producto.getId() == producto.getId())
+            {
+                  articulos += linea.cantidad;
+                  while(articulos >= descuento)
+                  {
+                      linea.cantidad--;
+                      articulos -= descuento;
+                      acumulado += linea.producto.getPrecio();
+                      linea.descuento = true;
+                  }
+            }
+        }
+
+        return acumulado;
     }
     
 
