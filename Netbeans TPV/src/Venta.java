@@ -8,6 +8,7 @@ public class Venta
 	private ArrayList<AlgoritmoImpuestos> algoritmosImpuestos;
 	private double precioTotal;
 	private double precioFinal;
+	private double precioNeto;
 	
 	public Venta()
 	{
@@ -16,6 +17,7 @@ public class Venta
 		algoritmosImpuestos = new ArrayList<AlgoritmoImpuestos>();
 		precioTotal = 0;
 		precioFinal = 0;
+		precioNeto = 0;
 	}
 
 	public Venta(Venta venta)
@@ -25,6 +27,7 @@ public class Venta
 		algoritmosImpuestos = new ArrayList<AlgoritmoImpuestos>(venta.algoritmosImpuestos);
 		precioTotal = venta.precioTotal;
 		precioFinal = venta.precioFinal;
+		precioNeto = venta.precioNeto;
 	}
 	
 	public ArrayList<LineaVenta> getLineasVenta()
@@ -94,22 +97,22 @@ public class Venta
 	{
 		return precioFinal;
 	}
-	
-	public Double calcularImpuestos()
+
+	/**
+	 * Obtiene el precio neto de la venta (después de aplicar el descuento pero sin incluir los impuestos).
+	 * Este valor se calcula al invocar "actualizarPrecio" desde la venta.
+	 * @return Devuelve un valor real con el precio neto de la venta.
+	 */
+	public double getPrecioNeto()
 	{
-		double acumulado = 0.0;
-		for (AlgoritmoImpuestos i : algoritmosImpuestos)//TODO podria haber una serie de algoritmos diferentes, no?
-		{
-			acumulado += i.calcularImpuestos(new Venta(this));
-		}
-		return acumulado;
+		return precioNeto;
 	}
 
 	/**
 	 * Actualiza el precio total y precio final de la venta (el precio final tiene en cuenta el máximo descuento aplicable).
 	 * Además, si el descuento máximo se consigue con un descuento por producto, modifica las líneas de la venta.
 	 */
-	public void actualizarPrecio()
+	public void actualizarPrecios()
 	{
 		precioTotal = 0.0;
 		for (LineaVenta i : lineasVenta)
@@ -117,6 +120,12 @@ public class Venta
 			precioTotal += i.getCantidad() * i.getProducto().getPrecio();
 		}
 
-		//TODO calcular precio final con descuentos y tal, pero Venta todavia no esta relacionada con DescuentoBlabla.
+		//TODO calcular precioFinal con descuentos y tal, pero Venta todavia no esta relacionada con DescuentoBlabla.
+
+		precioNeto = precioFinal;
+		for (AlgoritmoImpuestos i : algoritmosImpuestos)
+		{
+			precioNeto -= i.calcularImpuestos(this);
+		}
 	}
 }
