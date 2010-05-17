@@ -360,11 +360,11 @@
         <children xmi:id="_XaYpoGHlEd-ACcPnceB66w" type="Description">
           <element xsi:nil="true"/>
         </children>
-        <styles xmi:type="notation:ShapeStyle" xmi:id="_XaYCkWHlEd-ACcPnceB66w" fontName="Sans" description="Faltan algunos métodos setter y getters que se han omitido en el diagrama para mayor claridad.&lt;br />" fillColor="13369343" lineColor="6737151" lineWidth="1"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_XaYCkWHlEd-ACcPnceB66w" fontName="Sans" description="Faltan algunos métodos &lt;span style=&quot;font-style: italic;&quot;>setters&lt;/span> y &lt;span style=&quot;font-style: italic;&quot;>getters&lt;/span>&#xA;        que se han omitido en el diagrama para mayor claridad (aunque en la implementación sí aparecen).&lt;br />" fillColor="13369343" lineColor="6737151" lineWidth="1"/>
         <styles xmi:type="notation:TextStyle" xmi:id="_XaYCkmHlEd-ACcPnceB66w"/>
         <styles xmi:type="notation:LineTypeStyle" xmi:id="_XaYCk2HlEd-ACcPnceB66w"/>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XaYClGHlEd-ACcPnceB66w" x="9688" y="21079" width="12148"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XaYClGHlEd-ACcPnceB66w" x="18070" y="19630" width="8306" height="2059"/>
       </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_1zdP0TAfEd-xu5buYM0Kfg"/>
       <element xsi:nil="true"/>
