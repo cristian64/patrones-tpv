@@ -54,5 +54,10 @@ public class Venta
 	{
 		this.tipoCliente = tipoCliente;
 	}
+	
+	public TipoCliente getTipoCliente()
+	{
+		return tipoCliente;
+	}
 }
 
