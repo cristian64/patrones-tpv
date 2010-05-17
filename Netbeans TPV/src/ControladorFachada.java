@@ -14,6 +14,7 @@ public class ControladorFachada
 	public void crearNuevaVenta()
 	{
 		venta = new Venta();
+		venta.anadirEstrategiaDescuento(new DescuentoCliente());
 		entradaSalida.LeerDescuentoVolumen(CatalogoProducto.getInstancia());
 	}
 
