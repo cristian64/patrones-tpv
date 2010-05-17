@@ -25,7 +25,7 @@ public class DescuentoProducto implements Descuento {
                   //Comprueba que haya suficientes productos para el descuento
                   while(articulos >= descuento)
                   {
-                      linea.setCantidad(linea.getCantidad()-1);
+                      linea.setPrecioLinea(linea.getPrecioLinea()-linea.getProducto().getPrecio());
                       articulos -= descuento;
                       acumulado += linea.getProducto().getPrecio();
                       linea.setDescuento(true);
