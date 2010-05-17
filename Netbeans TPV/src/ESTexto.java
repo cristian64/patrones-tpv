@@ -163,7 +163,7 @@ public class ESTexto implements EntradaSalida {
 
 	public void LeerTPV(Venta venta) {
 		try {
-			BufferedReader bf = new BufferedReader(new FileReader("CatalogoProductos.properties"));
+			BufferedReader bf = new BufferedReader(new FileReader("TPV.properties"));
 
 			String s = "";
 			while ((s = bf.readLine())!=null) {
