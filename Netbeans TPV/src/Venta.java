@@ -6,6 +6,7 @@ public class Venta
 	private ArrayList<LineaVenta> lineasVenta;
 	private TipoCliente tipoCliente;
 	private ArrayList<AlgoritmoImpuestos> algoritmosImpuestos;
+	private ArrayList<Descuento> estrategiasDescuento;
 	private double precioTotal;
 	private double precioFinal;
 	private double precioNeto;
@@ -15,6 +16,7 @@ public class Venta
 		lineasVenta = new ArrayList<LineaVenta>();
 		tipoCliente = null;
 		algoritmosImpuestos = new ArrayList<AlgoritmoImpuestos>();
+		estrategiasDescuento = new ArrayList<Descuento>();
 		precioTotal = 0;
 		precioFinal = 0;
 		precioNeto = 0;
@@ -25,6 +27,7 @@ public class Venta
 		lineasVenta = new ArrayList<LineaVenta>(venta.lineasVenta);
 		tipoCliente = venta.tipoCliente;
 		algoritmosImpuestos = new ArrayList<AlgoritmoImpuestos>(venta.algoritmosImpuestos);
+		estrategiasDescuento = new ArrayList<Descuento>(venta.estrategiasDescuento);
 		precioTotal = venta.precioTotal;
 		precioFinal = venta.precioFinal;
 		precioNeto = venta.precioNeto;
@@ -33,6 +36,16 @@ public class Venta
 	public ArrayList<LineaVenta> getLineasVenta()
 	{
 		return lineasVenta;
+	}
+
+	public void anadirEstrategiaDescuento(Descuento descuento)
+	{
+		estrategiasDescuento.add(descuento);
+	}
+
+	public void anadirAlgoritmoImpuestos(AlgoritmoImpuestos algoritmoImpuestos)
+	{
+		algoritmosImpuestos.add(algoritmoImpuestos);
 	}
 	
 	public void anadirProducto(Producto producto, int cantidad)
@@ -114,14 +127,30 @@ public class Venta
 	 */
 	public void actualizarPrecios()
 	{
+		// Se actualiza el precio total.
 		precioTotal = 0.0;
 		for (LineaVenta i : lineasVenta)
 		{
 			precioTotal += i.getCantidad() * i.getProducto().getPrecio();
 		}
 
-		//TODO calcular precioFinal con descuentos y tal, pero Venta todavia no esta relacionada con DescuentoBlabla.
+		// Se actualiza el precio final (y se actualiza la venta si se ha modificado).
+		double descuentoMaximo = Double.MIN_VALUE;
+		Venta copiaVenta = this;
+		for (Descuento i : estrategiasDescuento)
+		{
+			Venta copiaVentaAux = new Venta(this);
+			double descuentoMaximoAux = i.calcularDescuento(copiaVentaAux);
+			if (descuentoMaximoAux > descuentoMaximo)
+			{
+				copiaVenta = copiaVentaAux;
+				descuentoMaximo = descuentoMaximoAux;
+			}
+		}
+		precioFinal = precioTotal - descuentoMaximo;
+		//TODO this = copiaVenta; como no se puede hacer, hay que inventarse un operator= tipic de C++ (toda la mierda tener que hacerlo).
 
+		// Se actualiza el precio neto.
 		precioNeto = precioFinal;
 		for (AlgoritmoImpuestos i : algoritmosImpuestos)
 		{
