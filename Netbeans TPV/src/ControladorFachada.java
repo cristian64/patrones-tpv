@@ -1,27 +1,30 @@
 public class ControladorFachada
 {
+	private EntradaSalida entradaSalida;
+	private Venta venta;
+
 	public void inicializar()
 	{
-
+		entradaSalida = new ESTexto();
 	}
 
 	public void crearNuevaVenta()
 	{
-
+		venta = new Venta();
 	}
 
-	public void introducirProducto()
+	public void introducirProductos()
+	{
+		entradaSalida.LeerVenta(venta);
+	}
+
+	public void realizarPago()
 	{
 
 	}
 
 	public void terminarVenta()
 	{
-
-	}
-
-	public void realizarPago()
-	{
-
+		entradaSalida.EscribirVenta(venta);
 	}
 }
