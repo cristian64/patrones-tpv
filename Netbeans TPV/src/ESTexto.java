@@ -98,7 +98,7 @@ public class ESTexto implements EntradaSalida {
 				dp.setDescuento(descuento);
 				dp.setProducto(CatalogoProducto.getInstancia().obtenerProducto(id));
 
-				compuesto.anadirDescuento(compuesto);
+				compuesto.anadirDescuento(dp);
 			}
 
 			venta.anadirEstrategiaDescuento(compuesto);
