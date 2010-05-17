@@ -1,13 +1,34 @@
+import java.util.ArrayList;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author jorge
- */
-public class CatalogoProducto {
-
+public class CatalogoProducto
+{
+	private ArrayList<Producto> productos;
+	private static CatalogoProducto instancia;
+	
+	public static CatalogoProducto getInstancia()
+	{
+		if (instancia == null)
+			instancia = new CatalogoProducto();
+		return instancia;
+	}
+	
+	private CatalogoProducto()
+	{
+		productos = new ArrayList<Producto>();
+	}
+	
+	public Producto obtenerProducto(int id)
+	{
+		for (Producto i : productos)
+		{
+			if (i.getId() == id)
+				return i;
+		}
+	}
+	
+	public void anadirProducto(Producto producto)
+	{
+		productos.add(producto);
+	}
 }
+
