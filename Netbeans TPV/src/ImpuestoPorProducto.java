@@ -16,7 +16,7 @@ public class ImpuestoPorProducto implements AlgoritmoImpuestos {
 		{
 			Producto p = linea.getProducto();
 			double total = p.getPrecio() * linea.getCantidad();
-			impuesto += (total - (total / ((100+p.getDescuento())/100)));
+			impuesto += (total - (total / ((100+p.getImpuesto())/100)));
 		}
 
 		return impuesto;
