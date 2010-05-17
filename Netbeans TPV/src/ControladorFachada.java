@@ -16,6 +16,7 @@ public class ControladorFachada
 		venta = new Venta();
 		venta.anadirEstrategiaDescuento(new DescuentoCliente());
 		entradaSalida.LeerDescuentoVolumen(venta);
+		entradaSalida.LeerTPV(venta);
 	}
 
 	public void introducirProductos()
@@ -26,7 +27,7 @@ public class ControladorFachada
 
 	public void realizarPago()
 	{
-
+		venta.actualizarPrecios();
 	}
 
 	public void terminarVenta()
