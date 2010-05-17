@@ -6,17 +6,25 @@ public class Venta
 	private ArrayList<LineaVenta> lineasVenta;
 	private TipoCliente tipoCliente;
 	private ArrayList<AlgoritmoImpuestos> algoritmosImpuestos;
+	private double precioTotal;
+	private double precioFinal;
 	
 	public Venta()
 	{
 		lineasVenta = new ArrayList<LineaVenta>();
-		tipoCliente = null;		
+		tipoCliente = null;
+		algoritmosImpuestos = new ArrayList<AlgoritmoImpuestos>();
+		precioTotal = 0;
+		precioFinal = 0;
 	}
 
 	public Venta(Venta venta)
 	{
 		lineasVenta = new ArrayList<LineaVenta>(venta.lineasVenta);
 		tipoCliente = venta.tipoCliente;
+		algoritmosImpuestos = new ArrayList<AlgoritmoImpuestos>(venta.algoritmosImpuestos);
+		precioTotal = venta.precioTotal;
+		precioFinal = venta.precioFinal;
 	}
 	
 	public ArrayList<LineaVenta> getLineasVenta()
@@ -51,7 +59,7 @@ public class Venta
 				{
 					// Si hay menos cantidad, se debe eliminar la línea y continuar la búsqueda del producto en otra línea.
 					cantidad -= lineaVentaActual.getCantidad();
-					i.remove(); //TODO falta comprobar que se elimina bien con "remove", pero como no tengo netbeans ni siquiera sé si existe el método "remove" en el Iterator.				
+					i.remove();
 				}
 			}
 		}
@@ -66,6 +74,26 @@ public class Venta
 	{
 		return tipoCliente;
 	}
+
+	/**
+	 * Obtiene el precio total de la venta (sin considerar descuentos).
+	 * Este valor se calcula al invocar "actualizarPrecio" desde la venta.
+	 * @return Devuelve un valor real con el precio total de la venta.
+	 */
+	public double getPrecioTotal()
+	{
+		return precioTotal;
+	}
+
+	/**
+	 * Obtiene el precio final de la venta (después de aplicar el descuento).
+	 * Este valor se calcula al invocar "actualizarPrecio" desde la venta.
+	 * @return Devuelve un valor real con el precio final de la venta.
+	 */
+	public double getPrecioFinal()
+	{
+		return precioFinal;
+	}
 	
 	public Double calcularImpuestos()
 	{
@@ -76,20 +104,19 @@ public class Venta
 		}
 		return acumulado;
 	}
-	
-	public Double calcularPrecio()
+
+	/**
+	 * Actualiza el precio total y precio final de la venta (el precio final tiene en cuenta el máximo descuento aplicable).
+	 * Además, si el descuento máximo se consigue con un descuento por producto, modifica las líneas de la venta.
+	 */
+	public void actualizarPrecio()
 	{
-		double acumulado = 0.0;
+		precioTotal = 0.0;
 		for (LineaVenta i : lineasVenta)
 		{
-			acumulado += i.getCantidad() * i.getProducto().getPrecio();
+			precioTotal += i.getCantidad() * i.getProducto().getPrecio();
 		}
-		return acumulado;
-	}
-	
-	public Double calcularDescuento()
-	{
-		return -123456.789;//TODO
+
+		//TODO calcular precio final con descuentos y tal, pero Venta todavia no esta relacionada con DescuentoBlabla.
 	}
 }
-
