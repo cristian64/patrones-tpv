@@ -5,7 +5,7 @@ public class Venta
 {
 	private ArrayList<LineaVenta> lineasVenta;
 	private TipoCliente tipoCliente;
-        private ArrayList<AlgoritmoImpuestos> algoritmosImpuestos;
+	private ArrayList<AlgoritmoImpuestos> algoritmosImpuestos;
 	
 	public Venta()
 	{
@@ -13,10 +13,11 @@ public class Venta
 		tipoCliente = null;		
 	}
 
-        public Venta(Venta venta)
-        {
-            //TODO Constructor de copia
-        }
+	public Venta(Venta venta)
+	{
+		lineasVenta = new ArrayList<LineaVenta>(venta.lineasVenta);
+		tipoCliente = venta.tipoCliente;
+	}
 	
 	public ArrayList<LineaVenta> getLineasVenta()
 	{
