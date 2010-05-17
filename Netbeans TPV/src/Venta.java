@@ -70,6 +70,7 @@ public class Venta
 				{
 					// Si en la línea actual hay más cantidad que la que se quiere sustraer, se decrementa.
 					lineaVentaActual.setCantidad(lineaVentaActual.getCantidad() - cantidad);
+					lineaVentaActual.setPrecioLinea(lineaVentaActual.getPrecioLinea() - cantidad * lineaVentaActual.getProducto().getPrecio());
 					cantidad = 0;
 				}
 				else
