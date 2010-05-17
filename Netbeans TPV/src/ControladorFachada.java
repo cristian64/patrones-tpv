@@ -6,11 +6,15 @@ public class ControladorFachada
 	public void inicializar()
 	{
 		entradaSalida = new ESTexto();
+		entradaSalida.LeerCatalogo(CatalogoProducto.getInstancia());
+		entradaSalida.LeerCatalogoIVA(CatalogoProducto.getInstancia());
+		entradaSalida.LeerReglasPrecios(TiposCliente.getInstancia());
 	}
 
 	public void crearNuevaVenta()
 	{
 		venta = new Venta();
+		entradaSalida.LeerDescuentoVolumen(CatalogoProducto.getInstancia());
 	}
 
 	public void introducirProductos()
