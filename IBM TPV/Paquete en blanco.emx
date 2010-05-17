@@ -265,7 +265,7 @@
           <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_a1I482DXEd-d4Kxxoy_w4A"/>
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_a1HDwWDXEd-d4Kxxoy_w4A" fontName="Sans" showListSignature="true" showStereotype="Label"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a1HDwmDXEd-d4Kxxoy_w4A" x="2600" y="2600"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a1HDwmDXEd-d4Kxxoy_w4A" x="1430" y="1950"/>
       </children>
       <children xmi:id="_JqtCoGGaEd-ACcPnceB66w" element="_JqqmYGGaEd-ACcPnceB66w">
         <children xmi:id="_JqtpsGGaEd-ACcPnceB66w" type="ImageCompartment">
@@ -1147,6 +1147,7 @@
       <ownedParameter xmi:id="_3_HysGGOEd-ACcPnceB66w" name="nombre">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
+      <ownedParameter xmi:id="_EKdtwGIJEd-vlZk6kz0zPQ" name="retorno" type="_XWjEoDAjEd-xu5buYM0Kfg"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_hi6YgGDXEd-d4Kxxoy_w4A" memberEnd="_hi6_kGDXEd-d4Kxxoy_w4A _hi80wGDXEd-d4Kxxoy_w4A">
