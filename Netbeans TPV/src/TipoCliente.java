@@ -1,12 +1,26 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author jorge
- */
-public class TipoCliente {
-
+public class TipoCliente
+{
+	private String nombre;
+	private int descuento;
+	
+	public String getNombre()
+	{
+		return nombre;
+	}
+	
+	public int getDescuento()
+	{
+		return descuento;
+	}
+	
+	public void setNombre(String nombre)
+	{
+		this.nombre = nombre;
+	}
+	
+	public void setDescuento(int descuento)
+	{
+		this.descuento = descuento;
+	}
 }
+

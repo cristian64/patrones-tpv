@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class CatalogoProducto
 {
 	private ArrayList<Producto> productos;
+	
 	private static CatalogoProducto instancia;
 	
 	public static CatalogoProducto getInstancia()
@@ -24,8 +25,7 @@ public class CatalogoProducto
 			if (i.getId() == id)
 				return i;
 		}
-
-                return null;
+		return null;
 	}
 	
 	public void anadirProducto(Producto producto)

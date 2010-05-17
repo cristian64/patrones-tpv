@@ -38,7 +38,7 @@ public class Venta
 				{
 					// Si en la línea actual hay más cantidad que la que se quiere sustraer, se decrementa.
 					lineaVentaActual.setCantidad(lineaVentaActual.getCantidad() - cantidad);
-					break;
+					cantidad = 0;
 				}
 				else
 				{
