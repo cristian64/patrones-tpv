@@ -36,7 +36,8 @@ public class ESTexto implements EntradaSalida {
 
 			}
 		} catch (Exception ex) {
-
+			System.out.println("Leer catalogo: " + ex.getLocalizedMessage());
+			System.exit(-1);
 		}
 	}
 
@@ -56,7 +57,8 @@ public class ESTexto implements EntradaSalida {
 
 			}
 		} catch (Exception ex) {
-
+			System.out.println("Leer IVA: " + ex.getLocalizedMessage());
+			System.exit(-1);
 		}
 	}
 
@@ -77,7 +79,8 @@ public class ESTexto implements EntradaSalida {
 				tiposCliente.anadirTipoCliente(cliente);
 			}
 		} catch (Exception ex) {
-
+			System.out.println(ex.getLocalizedMessage());
+			System.exit(-1);
 		}
 	}
 
@@ -104,7 +107,8 @@ public class ESTexto implements EntradaSalida {
 			venta.anadirEstrategiaDescuento(compuesto);
 
 		} catch (Exception ex) {
-
+			System.out.println("Leer descuentos: " + ex.getLocalizedMessage());
+			System.exit(-1);
 		}
 	}
 
@@ -139,7 +143,8 @@ public class ESTexto implements EntradaSalida {
 
 			}
 		} catch (Exception ex) {
-
+			System.out.println("Leer venta: " + ex.getLocalizedMessage());
+			System.exit(-1);
 		}
 	}
 
@@ -180,7 +185,8 @@ public class ESTexto implements EntradaSalida {
 
 			}
 		} catch (Exception ex) {
-
+			System.out.println("Leer TPV: " + ex.getLocalizedMessage());
+			System.exit(-1);
 		}
 	}
 }
