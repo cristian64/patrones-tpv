@@ -11,7 +11,7 @@ public interface EntradaSalida {
 	public void LeerCatalogo(CatalogoProducto catalogo);
 	public void LeerCatalogoIVA(CatalogoProducto catalogo);
 	public void LeerReglasPrecios(TiposCliente tiposCliente);
-	public void LeerDescuentoVolumen(CatalogoProducto catalogo);
+	public void LeerDescuentoVolumen(Venta venta);
 	public void LeerVenta(Venta venta);
 	public void EscribirVenta(Venta venta);
 }

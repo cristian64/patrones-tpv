@@ -11,7 +11,27 @@ public class DescuentoProducto implements Descuento {
 
     public Producto producto;
     public int descuento;
-    
+
+	public Producto getProducto()
+	{
+		return producto;
+	}
+
+	public void setProducto(Producto producto)
+	{
+		this.producto = producto;
+	}
+
+	public int getDescuento()
+	{
+		return descuento;
+	}
+
+	public void setDescuento(int descuento)
+	{
+		this.descuento = descuento;
+	}
+
     public double calcularDescuento(Venta venta) {
         int articulos = 0;
         double acumulado = 0;
