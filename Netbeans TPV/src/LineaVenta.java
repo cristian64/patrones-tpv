@@ -19,6 +19,15 @@ public class LineaVenta
 	{
 		return cantidad;
 	}
+
+	/**
+	 * Comprueba si la línea ha sufrido un descuento.
+	 * @return Devuelve verdadero si la línea ha sufrido un descuento o falso en caso contrario.
+	 */
+	public boolean getDescuento()
+	{
+		return descuento;
+	}
 	
 	public void setProducto(Producto producto)
 	{
