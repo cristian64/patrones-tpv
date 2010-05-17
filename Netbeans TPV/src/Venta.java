@@ -148,7 +148,7 @@ public class Venta
 			}
 		}
 		precioFinal = precioTotal - descuentoMaximo;
-		//TODO this = copiaVenta; como no se puede hacer, hay que inventarse un operator= tipic de C++ (toda la mierda tener que hacerlo).
+		this.lineasVenta = copiaVenta.lineasVenta;
 
 		// Se actualiza el precio neto.
 		precioNeto = precioFinal;
