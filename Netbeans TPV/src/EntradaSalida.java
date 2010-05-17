@@ -8,6 +8,7 @@
  * @author jorge
  */
 public interface EntradaSalida {
+	public void LeerTPV(Venta venta);
 	public void LeerCatalogo(CatalogoProducto catalogo);
 	public void LeerCatalogoIVA(CatalogoProducto catalogo);
 	public void LeerReglasPrecios(TiposCliente tiposCliente);

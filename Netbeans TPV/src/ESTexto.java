@@ -148,13 +148,39 @@ public class ESTexto implements EntradaSalida {
 		String salida = "";
 		for (LineaVenta i : venta.getLineasVenta())
 		{
-			salida += i.getProducto().getDescripcion() + " " + i.getCantidad() + " " + i.getProducto().getPrecio() + "E " + i.getPrecioLinea() + "E\n";
+			salida += i.getProducto().getDescripcion() + " " + i.getCantidad() + " " + i.getProducto().getPrecio() + "E " + i.getPrecioLinea() + "E";
+			if(i.getDescuento())
+				salida += " *";
+			salida+= "\n";
 		}
-		salida += "Total: " + venta.getPrecioTotal();
-		salida += "Dcto:" + (venta.getPrecioTotal() - venta.getPrecioFinal()) + "E";
-		salida += "Precio final: " + venta.getPrecioFinal() + "E";
-		salida += "Impuestos: " + (venta.getPrecioFinal() - venta.getPrecioNeto()) + "E";
+		salida += "Total: " + venta.getPrecioTotal() + "\n";
+		salida += "Dcto: " + (venta.getPrecioTotal() - venta.getPrecioFinal()) + "E\n";
+		salida += "Precio final: " + venta.getPrecioFinal() + "E\n";
+		salida += "Impuestos: " + (venta.getPrecioFinal() - venta.getPrecioNeto()) + "E\n";
 
 		System.out.println(salida);
+	}
+
+	public void LeerTPV(Venta venta) {
+		try {
+			BufferedReader bf = new BufferedReader(new FileReader("CatalogoProductos.properties"));
+
+			String s = "";
+			while ((s = bf.readLine())!=null) {
+				String[] lineas = s.split("\\p{Space}+");
+
+				if(lineas[1].equals("IVAPorProducto"))
+				{
+					venta.anadirAlgoritmoImpuestos(new ImpuestoPorProducto());
+				}
+				else
+				{
+					venta.anadirAlgoritmoImpuestos(new ImpuestoFijo());
+				}
+
+			}
+		} catch (Exception ex) {
+
+		}
 	}
 }

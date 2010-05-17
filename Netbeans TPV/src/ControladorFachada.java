@@ -21,6 +21,7 @@ public class ControladorFachada
 	public void introducirProductos()
 	{
 		entradaSalida.LeerVenta(venta);
+		venta.actualizarPrecios();
 	}
 
 	public void realizarPago()
