@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class DescuentoCompuesto implements Descuento {
     ArrayList<Descuento> descuentos;
 
-    public void añadirDescuento(Descuento descuento)
+    public void anadirDescuento(Descuento descuento)
     {
         descuentos.add(descuento);
     }
