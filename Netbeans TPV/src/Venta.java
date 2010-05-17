@@ -53,6 +53,7 @@ public class Venta
 		LineaVenta nuevaLineaVenta = new LineaVenta();
 		nuevaLineaVenta.setProducto(producto);
 		nuevaLineaVenta.setCantidad(cantidad);
+		nuevaLineaVenta.setPrecioLinea(producto.getPrecio()*cantidad);
 		lineasVenta.add(nuevaLineaVenta);
 	}
 	
