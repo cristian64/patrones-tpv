@@ -4,14 +4,9 @@ public class Main
 	{
 		ControladorFachada controladorFachada = new ControladorFachada();
 		controladorFachada.inicializar();
-		while (controladorFachada.crearNuevaVenta())
-		{
-			while (controladorFachada.introducirProducto())
-			{
-
-			}
-			controladorFachada.realizarPago();
-			controladorFachada.terminarVenta();
-		}
+		controladorFachada.crearNuevaVenta();
+		controladorFachada.introducirProductos();
+		controladorFachada.realizarPago();
+		controladorFachada.terminarVenta();
 	}
 }
