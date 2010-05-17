@@ -59,5 +59,30 @@ public class Venta
 	{
 		return tipoCliente;
 	}
+	
+	public Double calcularImpuestos()
+	{
+		double acumulado = 0.0;
+		for (AlgoritmoImpuestos i : algoritmosImpuestos)//TODO podria haber una serie de algoritmos diferentes, no?
+		{
+			acumulado += i.calcularImpuestos(new Venta(this));
+		}
+		return acumulado;
+	}
+	
+	public Double calcularPrecio()
+	{
+		double acumulado = 0.0;
+		for (LineaVenta i : lineasVenta)
+		{
+			acumulado += i.getCantidad() * i.getProducto().getPrecio();
+		}
+		return acumulado;
+	}
+	
+	public Double calcularDescuento()
+	{
+		return -123456.789;//TODO
+	}
 }
 
