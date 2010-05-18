@@ -6,7 +6,7 @@ public class Venta
 	private ArrayList<LineaVenta> lineasVenta;
 	private TipoCliente tipoCliente;
 	private ArrayList<AlgoritmoImpuestos> algoritmosImpuestos;
-	private ArrayList<Descuento> estrategiasDescuento;
+	private ArrayList<EstrategiaDescuento> estrategiasDescuento;
 	private double precioTotal;
 	private double precioFinal;
 	private double precioNeto;
@@ -16,7 +16,7 @@ public class Venta
 		lineasVenta = new ArrayList<LineaVenta>();
 		tipoCliente = null;
 		algoritmosImpuestos = new ArrayList<AlgoritmoImpuestos>();
-		estrategiasDescuento = new ArrayList<Descuento>();
+		estrategiasDescuento = new ArrayList<EstrategiaDescuento>();
 		precioTotal = 0;
 		precioFinal = 0;
 		precioNeto = 0;
@@ -27,7 +27,7 @@ public class Venta
 		lineasVenta = new ArrayList<LineaVenta>(venta.lineasVenta);
 		tipoCliente = venta.tipoCliente;
 		algoritmosImpuestos = new ArrayList<AlgoritmoImpuestos>(venta.algoritmosImpuestos);
-		estrategiasDescuento = new ArrayList<Descuento>(venta.estrategiasDescuento);
+		estrategiasDescuento = new ArrayList<EstrategiaDescuento>(venta.estrategiasDescuento);
 		precioTotal = venta.precioTotal;
 		precioFinal = venta.precioFinal;
 		precioNeto = venta.precioNeto;
@@ -38,7 +38,7 @@ public class Venta
 		return lineasVenta;
 	}
 
-	public void anadirEstrategiaDescuento(Descuento descuento)
+	public void anadirEstrategiaDescuento(EstrategiaDescuento descuento)
 	{
 		estrategiasDescuento.add(descuento);
 	}
@@ -139,7 +139,7 @@ public class Venta
 		// Se actualiza el precio final (y se actualiza la venta si se ha modificado).
 		double descuentoMaximo = Double.MIN_VALUE;
 		Venta copiaVenta = this;
-		for (Descuento i : estrategiasDescuento)
+		for (EstrategiaDescuento i : estrategiasDescuento)
 		{
 			Venta copiaVentaAux = new Venta(this);
 			double descuentoMaximoAux = i.calcularDescuento(copiaVentaAux);

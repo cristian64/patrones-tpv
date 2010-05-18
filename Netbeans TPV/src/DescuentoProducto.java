@@ -7,7 +7,7 @@
  *
  * @author jorge
  */
-public class DescuentoProducto implements Descuento {
+public class DescuentoProducto implements EstrategiaDescuento {
 
     public Producto producto;
     public int descuento;

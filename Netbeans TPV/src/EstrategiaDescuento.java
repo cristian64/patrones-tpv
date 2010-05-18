@@ -1,4 +1,4 @@
-public interface Descuento
+public interface EstrategiaDescuento
 {
 	public double calcularDescuento(Venta venta);
 }

@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
-public class DescuentoCompuesto implements Descuento
+public class DescuentoCompuesto implements EstrategiaDescuento
 {
-	ArrayList<Descuento> descuentos;
+	ArrayList<EstrategiaDescuento> descuentos;
 
 	public DescuentoCompuesto()
 	{
-		descuentos = new ArrayList<Descuento>();
+		descuentos = new ArrayList<EstrategiaDescuento>();
 	}
 
-	public void anadirDescuento(Descuento descuento)
+	public void anadirDescuento(EstrategiaDescuento descuento)
 	{
 		descuentos.add(descuento);
 	}
@@ -18,7 +18,7 @@ public class DescuentoCompuesto implements Descuento
 	{
 		double acumulado = 0;
 
-		for (Descuento d : descuentos)
+		for (EstrategiaDescuento d : descuentos)
 		{
 			//Calcula el descuento de cada descuento base
 			acumulado += d.calcularDescuento(venta);

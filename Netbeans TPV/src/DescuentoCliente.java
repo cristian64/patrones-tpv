@@ -7,7 +7,7 @@
  *
  * @author jorge
  */
-public class DescuentoCliente implements Descuento {
+public class DescuentoCliente implements EstrategiaDescuento {
 
     public double calcularDescuento(Venta venta) {
         double acumulado = 0.0;
