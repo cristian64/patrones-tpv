@@ -24,7 +24,12 @@ public class Venta
 
 	public Venta(Venta venta)
 	{
-		lineasVenta = new ArrayList<LineaVenta>(venta.lineasVenta);
+		lineasVenta = new ArrayList<LineaVenta>();
+		for (LineaVenta i : venta.lineasVenta)
+		{
+			lineasVenta.add(new LineaVenta(i));
+		}
+
 		tipoCliente = venta.tipoCliente;
 		algoritmosImpuestos = new ArrayList<AlgoritmoImpuestos>(venta.algoritmosImpuestos);
 		estrategiasDescuento = new ArrayList<EstrategiaDescuento>(venta.estrategiasDescuento);

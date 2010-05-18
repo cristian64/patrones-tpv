@@ -10,6 +10,13 @@ public class LineaVenta
 		cantidad = 0;
 		precioLinea = 0;
 	}
+
+	public LineaVenta(LineaVenta lineaVenta)
+	{
+		producto = lineaVenta.producto;
+		cantidad = lineaVenta.cantidad;
+		precioLinea = lineaVenta.precioLinea;
+	}
 	
 	public Producto getProducto()
 	{
