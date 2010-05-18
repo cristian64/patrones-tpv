@@ -1,9 +1,7 @@
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.text.DecimalFormat;
 
 /*
  * To change this template, choose Tools | Templates
@@ -25,7 +23,7 @@ public class ESTexto implements EntradaSalida {
 				String linea[] = s.split("\\t");
 
 				int id = Integer.parseInt(linea[0]);
-				double precio = Double.parseDouble(linea[1]);
+				double precio = Double.parseDouble(linea[1].replaceAll(",", "."));
 
 				Producto p = new Producto();
 				p.setId(id);
@@ -48,7 +46,7 @@ public class ESTexto implements EntradaSalida {
 				String[] linea = s.split("[\\t|\\p{Space}+]");
 
 				int id = Integer.parseInt(linea[0]);
-				double impuesto = Double.parseDouble(linea[1]);
+				double impuesto = Double.parseDouble(linea[1].replaceAll(",", "."));
 
 				Producto p = catalogo.obtenerProducto(id);
 				p.setImpuesto(impuesto);
@@ -66,7 +64,7 @@ public class ESTexto implements EntradaSalida {
 			while ((s = bf.readLine())!=null) {
 				String linea[] = s.split("\\p{Space}*=\\p{Space}*");
 
-				double descuento = Double.parseDouble(linea[1]);
+				double descuento = Double.parseDouble(linea[1].replaceAll(",", "."));
 				
 				TipoCliente cliente = new TipoCliente();
 				cliente.setNombre(linea[0]);
@@ -140,18 +138,20 @@ public class ESTexto implements EntradaSalida {
 
 	public void EscribirVenta(Venta venta)
 	{
+		DecimalFormat formateador = new DecimalFormat ("#########.##");
+
 		String salida = "";
 		for (LineaVenta i : venta.getLineasVenta())
 		{
-			salida += i.getProducto().getDescripcion() + " " + i.getCantidad() + " " + i.getProducto().getPrecio() + "E " + i.getPrecioLinea() + "E";
+			salida += i.getProducto().getDescripcion() + " " + i.getCantidad() + " " + formateador.format(i.getProducto().getPrecio()) + "E " + formateador.format(i.getPrecioLinea()) + "E";
 			if(i.getDescuentoAplicado() != 0.0)
 				salida += " *";
 			salida+= "\n";
 		}
-		salida += "Total: " + venta.getPrecioTotal() + "E\n";
-		salida += "Dcto: " + (venta.getPrecioTotal() - venta.getPrecioFinal()) + "E\n";
-		salida += "Precio final: " + venta.getPrecioFinal() + "E\n";
-		salida += "Impuestos: " + (venta.getPrecioFinal() - venta.getPrecioNeto()) + "E\n";
+		salida += "Total: " + formateador.format(venta.getPrecioTotal()) + "E\n";
+		salida += "Dcto: " + formateador.format((venta.getPrecioTotal() - venta.getPrecioFinal())) + "E\n";
+		salida += "Precio final: " + formateador.format(venta.getPrecioFinal()) + "E\n";
+		salida += "Impuestos: " + formateador.format((venta.getPrecioFinal() - venta.getPrecioNeto())) + "E\n";
 
 		System.out.println(salida);
 	}
