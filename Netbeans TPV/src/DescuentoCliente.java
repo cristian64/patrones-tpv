@@ -19,6 +19,7 @@ public class DescuentoCliente implements EstrategiaDescuento {
 	    
             double precioLinea = linea.getCantidad()*linea.getProducto().getPrecio();
             acumulado += (precioLinea*porcentaje)/100.0;
+			linea.setPrecioLinea(precioLinea-((precioLinea*porcentaje)/100.0));
         }
 
         return acumulado;

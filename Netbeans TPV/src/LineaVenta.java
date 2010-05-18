@@ -51,5 +51,18 @@ public class LineaVenta
 	public double getDescuentoAplicado() {
 		return producto.getPrecio() * cantidad - precioLinea;
 	}
+
+	private boolean oferta = false;
+	
+	public void setOferta(boolean oferta)
+	{
+		this.oferta = oferta;
+	}
+
+	public boolean isOferta()
+	{
+		return oferta;
+	}
+
 }
 

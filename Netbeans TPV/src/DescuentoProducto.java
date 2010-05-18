@@ -47,6 +47,7 @@ public class DescuentoProducto implements EstrategiaDescuento {
                   while(articulos >= descuento)
                   {
                       linea.setPrecioLinea(linea.getPrecioLinea()-linea.getProducto().getPrecio());
+					  linea.setOferta(true);
                       articulos -= descuento;
                       acumulado += linea.getProducto().getPrecio();
                   }

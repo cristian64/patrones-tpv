@@ -34,6 +34,7 @@ public class ESTexto implements EntradaSalida {
 
 			}
 		} catch (Exception ex) {
+					System.out.println(ex);
 		}
 	}
 
@@ -49,10 +50,13 @@ public class ESTexto implements EntradaSalida {
 				double impuesto = Double.parseDouble(linea[1].replaceAll(",", "."));
 
 				Producto p = catalogo.obtenerProducto(id);
-				p.setImpuesto(impuesto);
+
+				if(p != null)
+					p.setImpuesto(impuesto);
 
 			}
 		} catch (Exception ex) {
+			System.out.println(ex);
 		}
 	}
 
@@ -73,7 +77,7 @@ public class ESTexto implements EntradaSalida {
 				tiposCliente.anadirTipoCliente(cliente);
 			}
 		} catch (Exception ex) {
-
+			System.out.println(ex);
 		}
 	}
 
@@ -90,15 +94,19 @@ public class ESTexto implements EntradaSalida {
 
 				int id = Integer.parseInt(linea[0]);
 				int descuento = Integer.parseInt(linea[1]);
-				DescuentoProducto dp = new DescuentoProducto();
-
-				dp.setDescuento(descuento);
-				dp.setProducto(CatalogoProducto.getInstancia().obtenerProducto(id));
-
-				compuesto.anadirDescuento(dp);
+				
+				Producto p = CatalogoProducto.getInstancia().obtenerProducto(id);
+				if(p != null)
+				{
+					DescuentoProducto dp = new DescuentoProducto();
+					dp.setProducto(p);
+					dp.setDescuento(descuento);
+					compuesto.anadirDescuento(dp);
+				}
 			}
 
 		} catch (Exception ex) {
+						System.out.println(ex);
 		}
 	}
 
@@ -117,13 +125,16 @@ public class ESTexto implements EntradaSalida {
 
 					Producto p = CatalogoProducto.getInstancia().obtenerProducto(id);
 
-					if(linea[0].equals("+"))
+					if(p != null)
 					{
-						venta.anadirProducto(p, cantidad);
-					}
-					else
-					{
-						venta.quitarProducto(p, cantidad);
+						if(linea[0].equals("+"))
+						{
+							venta.anadirProducto(p, cantidad);
+						}
+						else
+						{
+							venta.quitarProducto(p, cantidad);
+						}
 					}
 				}
 				else
@@ -133,6 +144,7 @@ public class ESTexto implements EntradaSalida {
 
 			}
 		} catch (Exception ex) {
+						System.out.println(ex);
 		}
 	}
 
@@ -143,10 +155,10 @@ public class ESTexto implements EntradaSalida {
 		String salida = "";
 		for (LineaVenta i : venta.getLineasVenta())
 		{
-			salida += i.getProducto().getDescripcion() + " " + i.getCantidad() + " " + formateador.format(i.getProducto().getPrecio()) + "E " + formateador.format(i.getPrecioLinea()) + "E";
-			if(i.getDescuentoAplicado() != 0.0)
-				salida += " *";
-			salida+= "\n";
+			if(i.isOferta())
+				salida += i.getProducto().getDescripcion() + " " + i.getCantidad() + " " + formateador.format(i.getProducto().getPrecio()) + "E " + formateador.format(i.getPrecioLinea()) + "E" + " *\n";
+			else
+				salida += i.getProducto().getDescripcion() + " " + i.getCantidad() + " " + formateador.format(i.getProducto().getPrecio()) + "E " + formateador.format(i.getProducto().getPrecio()*i.getCantidad()) + "E\n";
 		}
 		salida += "Total: " + formateador.format(venta.getPrecioTotal()) + "E\n";
 		salida += "Dcto: " + formateador.format((venta.getPrecioTotal() - venta.getPrecioFinal())) + "E\n";
@@ -175,6 +187,7 @@ public class ESTexto implements EntradaSalida {
 
 			}
 		} catch (Exception ex) {
+						System.out.println(ex);
 
 		}
 	}
