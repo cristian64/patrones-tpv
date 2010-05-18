@@ -40,7 +40,7 @@ public class Producto
 		this.precio = precio;	
 	}
 		
-	public void setImpuesto(int impuesto)
+	public void setImpuesto(double impuesto)
 	{
 		this.impuesto = impuesto;
 	}

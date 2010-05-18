@@ -25,7 +25,7 @@ public class ESTexto implements EntradaSalida {
 				String linea[] = s.split("\\t");
 
 				int id = Integer.parseInt(linea[0]);
-				int precio = Integer.parseInt(linea[1]);
+				double precio = Double.parseDouble(linea[1]);
 
 				Producto p = new Producto();
 				p.setId(id);
@@ -48,7 +48,7 @@ public class ESTexto implements EntradaSalida {
 				String[] linea = s.split("[\\t|\\p{Space}+]");
 
 				int id = Integer.parseInt(linea[0]);
-				int impuesto = Integer.parseInt(linea[1]);
+				double impuesto = Double.parseDouble(linea[1]);
 
 				Producto p = catalogo.obtenerProducto(id);
 				p.setImpuesto(impuesto);
@@ -66,7 +66,7 @@ public class ESTexto implements EntradaSalida {
 			while ((s = bf.readLine())!=null) {
 				String linea[] = s.split("\\p{Space}*=\\p{Space}*");
 
-				int descuento = Integer.parseInt(linea[1]);
+				double descuento = Double.parseDouble(linea[1]);
 				
 				TipoCliente cliente = new TipoCliente();
 				cliente.setNombre(linea[0]);

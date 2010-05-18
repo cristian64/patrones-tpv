@@ -1,14 +1,14 @@
 public class TipoCliente
 {
 	private String nombre;
-	private int descuento;
+	private double descuento;
 	
 	public String getNombre()
 	{
 		return nombre;
 	}
 	
-	public int getDescuento()
+	public double getDescuento()
 	{
 		return descuento;
 	}
@@ -18,7 +18,7 @@ public class TipoCliente
 		this.nombre = nombre;
 	}
 	
-	public void setDescuento(int descuento)
+	public void setDescuento(double descuento)
 	{
 		this.descuento = descuento;
 	}

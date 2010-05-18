@@ -12,7 +12,7 @@ public class DescuentoCliente implements Descuento {
     public double calcularDescuento(Venta venta) {
         double acumulado = 0.0;
 
-        int porcentaje = venta.getTipoCliente().getDescuento();
+        double porcentaje = venta.getTipoCliente().getDescuento();
 
         for(LineaVenta linea : venta.getLineasVenta())
         {
