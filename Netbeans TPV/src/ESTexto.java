@@ -148,7 +148,7 @@ public class ESTexto implements EntradaSalida {
 		for (LineaVenta i : venta.getLineasVenta())
 		{
 			salida += i.getProducto().getDescripcion() + " " + i.getCantidad() + " " + i.getProducto().getPrecio() + "E " + i.getPrecioLinea() + "E";
-			if(i.getDescuento())
+			if(i.getDescuentoAplicado() != 0.0)
 				salida += " *";
 			salida+= "\n";
 		}

@@ -3,7 +3,6 @@ public class Producto
 	private int id;
 	private String descripcion;
 	private double precio;
-	private int descuento;
 	private double impuesto;
 	
 	public int getId()
@@ -19,11 +18,6 @@ public class Producto
 	public double getPrecio()
 	{
 		return precio;
-	}
-	
-	public int getDescuento()
-	{
-		return descuento;
 	}
 	
 	public double getImpuesto()
@@ -45,12 +39,7 @@ public class Producto
 	{
 		this.precio = precio;	
 	}
-	
-	public void setDescuento(int descuento)
-	{
-		this.descuento = descuento;
-	}
-	
+		
 	public void setImpuesto(int impuesto)
 	{
 		this.impuesto = impuesto;

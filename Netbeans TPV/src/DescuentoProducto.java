@@ -36,6 +36,7 @@ public class DescuentoProducto implements Descuento {
         int articulos = 0;
         double acumulado = 0;
 
+
         for(LineaVenta linea : venta.getLineasVenta())
         {
             if(linea.getProducto().getId() == producto.getId())
@@ -48,7 +49,6 @@ public class DescuentoProducto implements Descuento {
                       linea.setPrecioLinea(linea.getPrecioLinea()-linea.getProducto().getPrecio());
                       articulos -= descuento;
                       acumulado += linea.getProducto().getPrecio();
-                      linea.setDescuento(true);
                   }
             }
         }

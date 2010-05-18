@@ -3,14 +3,12 @@ public class LineaVenta
 	private Producto producto;
 	private int cantidad;
 	private double precioLinea;
-	private boolean descuento;
 	
 	public LineaVenta()
 	{
 		producto = null;
 		cantidad = 0;
 		precioLinea = 0;
-		descuento = false;
 	}
 	
 	public Producto getProducto()
@@ -26,15 +24,6 @@ public class LineaVenta
 	public double getPrecioLinea()
 	{
 		return precioLinea;
-	}
-
-	/**
-	 * Comprueba si la línea ha sufrido un descuento.
-	 * @return Devuelve verdadero si la línea ha sufrido un descuento o falso en caso contrario.
-	 */
-	public boolean getDescuento()
-	{
-		return descuento;
 	}
 	
 	public void setProducto(Producto producto)
@@ -52,9 +41,8 @@ public class LineaVenta
 		this.precioLinea = precioLinea;
 	}
 
-	public void setDescuento(boolean descuento)
-	{
-		this.descuento = descuento;
+	public double getDescuentoAplicado() {
+		return (precioLinea - (producto.getPrecio()*cantidad));
 	}
 }
 
