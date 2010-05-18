@@ -42,7 +42,7 @@ public class LineaVenta
 	}
 
 	public double getDescuentoAplicado() {
-		return (precioLinea - (producto.getPrecio()*cantidad));
+		return producto.getPrecio() * cantidad - precioLinea;
 	}
 }
 
