@@ -36,7 +36,6 @@ public class ESTexto implements EntradaSalida {
 
 			}
 		} catch (Exception ex) {
-
 		}
 	}
 
@@ -46,7 +45,7 @@ public class ESTexto implements EntradaSalida {
 
 			String s = "";
 			while ((s = bf.readLine())!=null) {
-				String[] linea = s.split("[\\t|{Space}+]");
+				String[] linea = s.split("[\\t|\\p{Space}+]");
 
 				int id = Integer.parseInt(linea[0]);
 				int impuesto = Integer.parseInt(linea[1]);
@@ -56,7 +55,6 @@ public class ESTexto implements EntradaSalida {
 
 			}
 		} catch (Exception ex) {
-
 		}
 	}
 
@@ -66,7 +64,7 @@ public class ESTexto implements EntradaSalida {
 
 			String s = "";
 			while ((s = bf.readLine())!=null) {
-				String linea[] = s.split("=");
+				String linea[] = s.split("\\p{Space}*=\\p{Space}*");
 
 				int descuento = Integer.parseInt(linea[1]);
 				
@@ -90,7 +88,7 @@ public class ESTexto implements EntradaSalida {
 			venta.anadirEstrategiaDescuento(compuesto);
 			
 			while ((s = bf.readLine())!=null) {
-				String[] linea = s.split("[\\t|{Space}+]");
+				String[] linea = s.split("[\\t|\\p{Space}+]");
 
 				int id = Integer.parseInt(linea[0]);
 				int descuento = Integer.parseInt(linea[1]);
@@ -103,7 +101,6 @@ public class ESTexto implements EntradaSalida {
 			}
 
 		} catch (Exception ex) {
-
 		}
 	}
 
@@ -138,7 +135,6 @@ public class ESTexto implements EntradaSalida {
 
 			}
 		} catch (Exception ex) {
-
 		}
 	}
 
@@ -166,7 +162,7 @@ public class ESTexto implements EntradaSalida {
 
 			String s = "";
 			while ((s = bf.readLine())!=null) {
-				String[] lineas = s.split("[\\t|{Space}+]");
+				String[] lineas = s.split("[\\t|\\p{Space}+]");
 
 				if(lineas[1].equals("IVAPorProducto"))
 				{
